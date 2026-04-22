@@ -8,7 +8,13 @@ TFT_eSprite spr = TFT_eSprite(&tft);
 // ── Ring geometry ─────────────────────────────────────────────────────────────
 // Week ring drawn first (base), session ring drawn on top at the same position.
 static const uint16_t RING_ROUT = 115, RING_RIN = 105;
-static const uint32_t SESSION_CAP = 50000, WEEK_CAP = 1000000;
+#ifndef SESSION_CAP
+#define SESSION_CAP 50000
+#endif
+#ifndef WEEK_CAP
+#define WEEK_CAP 1000000
+#endif
+static const uint32_t sessionCap = SESSION_CAP, weekCap = WEEK_CAP;
 static const uint16_t COL_SESSION_BG = 0x3166;
 static const uint16_t COL_SESSION    = 0xffff;
 static const uint16_t COL_WEEK       = 0xdbaa;
@@ -18,8 +24,8 @@ static uint32_t _drawnSessionDeg = UINT32_MAX;
 static uint32_t _drawnWeekDeg    = UINT32_MAX;
 
 static void _drawRings(uint32_t sessionTok, uint32_t weekTok) {
-  uint32_t sDeg = (uint32_t)((float)min(sessionTok, SESSION_CAP) / SESSION_CAP * 360.0f);
-  uint32_t wDeg = (uint32_t)((float)min(weekTok,   WEEK_CAP)   / WEEK_CAP   * 360.0f);
+  uint32_t sDeg = (uint32_t)((float)min(sessionTok, sessionCap) / sessionCap * 360.0f);
+  uint32_t wDeg = (uint32_t)((float)min(weekTok,    weekCap)    / weekCap    * 360.0f);
 
   if (!_needFullRedraw && sDeg == _drawnSessionDeg && wDeg == _drawnWeekDeg) return;
   _drawnSessionDeg = sDeg;
