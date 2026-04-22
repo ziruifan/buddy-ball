@@ -4,6 +4,10 @@
 #include <TFT_eSPI.h>
 #include <string.h>
 
+#ifndef DEFAULT_SPECIES
+#define DEFAULT_SPECIES 3  // blob
+#endif
+
 extern TFT_eSprite spr;
 
 enum { B_SLEEP, B_IDLE, B_BUSY, B_ATTENTION, B_CELEBRATE, B_DIZZY, B_HEART };
@@ -98,7 +102,7 @@ void buddyInit() {
   tickCount = 0;
   nextTickAt = 0;
   uint8_t saved = speciesIdxLoad();
-  currentSpeciesIdx = (saved < N_SPECIES) ? saved : 3;
+  currentSpeciesIdx = (saved < N_SPECIES) ? saved : DEFAULT_SPECIES;
 }
 
 void buddySetSpeciesIdx(uint8_t idx) {

@@ -182,7 +182,7 @@ inline const char* ownerName() { return _ownerName; }
 inline uint8_t speciesIdxLoad() {
   Preferences p;
   p.begin("buddy", false);
-  uint8_t idx = p.getUChar("species", 3);  // default: blob
+  uint8_t idx = p.getUChar("species", 0xFF);  // 0xFF = never explicitly set
   p.end();
   return idx;
 }
