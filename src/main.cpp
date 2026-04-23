@@ -39,9 +39,9 @@ void setup() {
 
   memset(&claude, 0, sizeof(claude));
 
-  // Initial display: sleeping blob + empty rings
+  // Initial display: sleeping buddy + empty rings
   displayDrawRings(0, 0);
-  displayDrawBlob(BS_SLEEP, 0);
+  displayDrawBuddy(BS_SLEEP, 0);
 
   Serial.printf("[boot] %s ready\n", btName);
 }
@@ -92,11 +92,11 @@ void loop() {
                   (unsigned long)weekTok);
   }
 
-  // Blob: ~10fps
-  static uint32_t lastBlobMs = 0;
-  if (now - lastBlobMs >= 100) {
-    displayDrawBlob(buddyState, now);
-    lastBlobMs = now;
+  // Buddy: ~10fps
+  static uint32_t lastBuddyMs = 0;
+  if (now - lastBuddyMs >= 100) {
+    displayDrawBuddy(buddyState, now);
+    lastBuddyMs = now;
   }
 
   // Flush NVS if dirty (level-up already saves; this is a safety valve)

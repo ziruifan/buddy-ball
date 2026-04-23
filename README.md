@@ -57,7 +57,7 @@ src/
   buddy.cpp/h     — species dispatch and render helpers
   buddies/        — one file per species, five animation functions each
   ble_bridge.cpp  — Nordic UART BLE service
-  display.cpp/h   — TFT_eSPI ring and blob rendering
+  display.cpp/h   — TFT_eSPI ring and buddy rendering
   data.h          — wire protocol, JSON parsing
   commands.h      — command/ack handling
   stats.h         — NVS-backed token stats and settings

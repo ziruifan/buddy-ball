@@ -70,7 +70,7 @@ void displayDrawRings(uint32_t sessionTok, uint32_t weekTok) {
   _needFullRedraw = false;
 }
 
-void displayDrawBlob(BuddyState state, uint32_t /*ms*/) {
+void displayDrawBuddy(BuddyState state, uint32_t /*ms*/) {
   if (!spr.created()) return;
   buddyTick((uint8_t)state);
 
