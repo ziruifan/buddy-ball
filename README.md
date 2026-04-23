@@ -45,6 +45,10 @@ The circular screen has two layers:
 
 Eighteen species are compiled in (`src/buddies/`): capybara, duck, goose, blob, cat, dragon, octopus, owl, penguin, turtle, snail, ghost, axolotl, cactus, robot, rabbit, mushroom, chonk. The default is blob (`DEFAULT_SPECIES=3` in `platformio.ini`). Change the build flag to switch species at compile time.
 
+## Case
+
+A 3D-printable two-part enclosure for the Waveshare ESP32-S3-LCD-1.28 is in `case/`.
+
 ## Project layout
 
 ```
@@ -58,6 +62,9 @@ src/
   commands.h      — command/ack handling
   stats.h         — NVS-backed token stats and settings
   week_tracker.h  — rolling weekly token accumulator
+case/
+  front.stl       — front shell (display side)
+  back.stl        — back shell
 ```
 
 ## License
